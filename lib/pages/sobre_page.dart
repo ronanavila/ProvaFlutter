@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:prova/login_page.dart';
+import 'package:prova/pages/login_page.dart';
 
 class SobrePage extends StatefulWidget {
   const SobrePage({Key? key}) : super(key: key);

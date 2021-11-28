@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'login_page.dart';
-import 'create_account.dart';
+import 'package:prova/pages/criartarefa_page.dart';
+import 'pages/login_page.dart';
+import 'pages/create_account.dart';
 //import 'package:prova/menu_page.dart';
 
 void main() {
@@ -11,6 +12,7 @@ void main() {
       routes: {
         '/login': (context) => const LoginPage(),
         '/create_account': (context) => const CreateAccountPage(),
+        '/inserir': (context) => const CriarTarefa(),
       },
     ),
   );

@@ -128,14 +128,22 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
       password: senha,
     )
         .then((value) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
+      FirebaseFirestore.instance
+          .collection('usuarios')
+          .doc(value.user!.uid)
+          .set({
+        'nome': nome,
+        'cpf': cpf,
+        'telefone': telefone,
+        'senha': senha,
+      }).then((value) {
+        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
           content: Text('Usuário criado com sucesso!'),
           duration: Duration(seconds: 2),
-        ),
-      );
-      Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (context) => const LoginPage()));
+        ));
+        Navigator.of(context).pushReplacement(
+            MaterialPageRoute(builder: (context) => const LoginPage()));
+      });
     }).catchError((erro) {
       if (erro.code == 'email-already-in-use') {
         ScaffoldMessenger.of(context).showSnackBar(
